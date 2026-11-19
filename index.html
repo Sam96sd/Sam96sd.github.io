@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سامر سعد | الخدمات</title>
+<meta name="description" content="سير ذاتية احترافية، وصفحات ويب للمحلات والمطاعم، وتطبيقات أندرويد، وترجمة وتفريغ وتدقيق لغوي.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0C56A5;--blue-soft:#EAF3FB;--ink:#1F2A37;--muted:#5B6675;--line:#DCE3EA;
+  --bg:#F4F8FC;--card:#FFFFFF;--wa:#25D366;--wa-dark:#128C7E;--shadow:0 1px 2px rgba(16,40,70,.06),0 6px 20px rgba(16,40,70,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",Tahoma,Arial,sans-serif;line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+/* ---------- home ---------- */
+.hero{padding:56px 0 28px;text-align:center}
+.hero h1{margin:0;font-size:clamp(34px,7vw,52px);font-weight:800;letter-spacing:-.5px}
+.hero p{margin:8px auto 0;max-width:560px;color:var(--muted);font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;padding:12px 0 40px}
+.tile{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:transform .15s,border-color .15s,box-shadow .15s}
+.tile:hover,.tile:focus-visible{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 10px 28px rgba(12,86,165,.12);outline:none}
+.ic{width:48px;height:48px;border-radius:12px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center}
+.ic svg{width:26px;height:26px}
+.tile h2{margin:4px 0 0;font-size:19px;font-weight:700;line-height:1.5}
+.tile p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+.tile .more{color:var(--blue);font-weight:700;font-size:14px}
+.sec-label{margin:18px 0 0;font-size:14px;font-weight:700;color:var(--muted)}
+/* ---------- service pages ---------- */
+.page{display:none;padding:22px 0 48px}
+body.on-service .home{display:none}
+.page.active{display:block}
+.back{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:700;font-size:15px;color:var(--blue);padding:8px 0}
+.head{display:flex;gap:16px;align-items:center;margin:14px 0 6px}
+.head .ic{width:60px;height:60px;border-radius:14px;flex:none}
+.head .ic svg{width:32px;height:32px}
+.head h1{margin:0;font-size:clamp(24px,5vw,32px);font-weight:800;line-height:1.4}
+.lead{font-size:17px;color:var(--muted);margin:6px 0 22px;max-width:720px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow);margin-bottom:16px}
+.card h3{margin:0 0 10px;font-size:18px}
+ul.ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.ticks li{position:relative;padding-inline-start:28px}
+ul.ticks li::before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:16px;height:16px;border-radius:50%;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C56A5' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{counter-increment:s;position:relative;padding-inline-start:40px;min-height:28px}
+.steps li::before{content:counter(s);position:absolute;inset-inline-start:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;font-size:14px;display:grid;place-items:center}
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.price{border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
+.price.best{border-color:var(--blue);background:var(--blue-soft)}
+.price .badge{position:absolute;top:-11px;inset-inline-start:14px;background:var(--blue);color:#fff;font-size:12px;font-weight:700;padding:2px 10px;border-radius:20px}
+.price b{display:block;font-size:16px}
+.price .amt{font-size:24px;font-weight:800;color:var(--blue)}
+.price .cur{font-size:14px;color:var(--muted);font-weight:600}
+.note{font-size:14px;color:var(--muted);margin:10px 0 0}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.shots figure{margin:0}
+.shots img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);display:block}
+.shots figcaption{font-size:13.5px;color:var(--muted);margin-top:6px;text-align:center}
+.examples a{font-weight:700}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn svg{width:20px;height:20px}
+.btn.wa{background:var(--wa);color:#fff}.btn.wa:hover{background:var(--wa-dark)}
+.btn.primary{background:var(--blue);color:#fff}.btn.primary:hover{background:#094583}
+.btn.ghost{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}
+footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:14px;text-align:center}
+footer a{text-decoration:none;font-weight:700}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+@media (max-width:520px){.hero{padding:40px 0 18px}.tile{padding:18px}.card{padding:18px}.btn{width:100%}}
+</style>
+</head>
+<body>
+
+<!-- SVG icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><circle cx="12" cy="8.5" r="2.5"/><path d="M8 14.5c.8-1.4 2.2-2 4-2s3.2.6 4 2M8 18h8"/></symbol>
+  <symbol id="i-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 5h4M9 9h6M9 12.5h6M9 16h3.5"/></symbol>
+  <symbol id="i-app" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><path d="M17.25 13.5v7.5M13.5 17.25H21"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="12.5" rx="2"/><path d="M8 21h8M12 17.5V21M10.5 9.2v4.6l4-2.3z"/></symbol>
+  <symbol id="i-tr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h8M7 3v2M9.5 5c-.6 3.5-3 6-6 7.5M5.5 8.5c1 1.8 2.6 3.2 4.5 4"/><path d="M13 21l3.8-9 3.7 9M14.3 18h5"/></symbol>
+  <symbol id="i-sub" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M6 13.5h5M13.5 13.5H18M6 16.5h8"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></symbol>
+</svg>
+
+<!-- =================== HOME =================== -->
+<main class="home wrap">
+  <header class="hero">
+    <h1>سامر سعد</h1>
+    <p>اختر الخدمة التي تحتاجها لتطّلع على تفاصيلها.</p>
+  </header>
+
+  <div class="grid">
+    <a class="tile" href="#cv"><span class="ic"><svg><use href="#i-cv"/></svg></span><h2>السيرة الذاتية</h2><p>سيرة ذاتية احترافية بالعربية والإنجليزية، بتصميم Europass ومتوافقة مع أنظمة ATS.</p><span class="more">التفاصيل والأسعار</span></a>
+    <a class="tile" href="#web"><span class="ic"><svg><use href="#i-web"/></svg></span><h2>صفحات ويب للمحلات والمطاعم</h2><p>منيو إلكتروني للمطعم، أو واجهة بسيطة لمحلك تعرض منتجاتك وعروضك مع زر طلب عبر واتساب.</p><span class="more">التفاصيل</span></a>
+    <a class="tile" href="#apps"><span class="ic"><svg><use href="#i-app"/></svg></span><h2>تطبيقات أندرويد بسيطة</h2><p>تطبيقات خفيفة تعمل دون إنترنت، مصمّمة لحاجة محددة وخالية من الإعلانات.</p><span class="more">التفاصيل</span></a>
+    <a class="tile" href="#iptv"><span class="ic"><svg><use href="#i-tv"/></svg></span><h2>تطبيق IPTV خفيف</h2><p>مشغّل سريع لشاشات أندرويد، بلا أي إعلانات، يعمل باشتراكك الحالي.</p><span class="more">التفاصيل</span></a>
+    <a class="tile" href="#translation"><span class="ic"><svg><use href="#i-tr"/></svg></span><h2>الترجمة</h2><p>ترجمة دقيقة من الإنجليزية إلى العربية وبالعكس، تنقل المعنى بأسلوب طبيعي بعيد عن الحرفية.</p><span class="more">التفاصيل</span></a>
+    <a class="tile" href="#video"><span class="ic"><svg><use href="#i-sub"/></svg></span><h2>ترجمة الفيديو</h2><p>ترجمة مقاطع الفيديو إلى العربية مع ملف ترجمة SRT متزامن، أو تسليم الفيديو مترجماً.</p><span class="more">التفاصيل</span></a>
+    <a class="tile" href="#transcription"><span class="ic"><svg><use href="#i-mic"/></svg></span><h2>التفريغ الصوتي والمرئي</h2><p>تحويل التسجيلات والمحاضرات ومقاطع الفيديو إلى نص مكتوب بدقة، بالعربية والإنجليزية.</p><span class="more">التفاصيل</span></a>
+    <a class="tile" href="#proofreading"><span class="ic"><svg><use href="#i-pen"/></svg></span><h2>التدقيق اللغوي</h2><p>تدقيق إملائي ونحوي وتحسين للصياغة في النصوص العربية والإنجليزية.</p><span class="more">التفاصيل</span></a>
+  </div>
+</main>
+
+<!-- =================== CV =================== -->
+<section class="page wrap" id="p-cv">
+  <a class="back" href="#">→ كل الخدمات</a>
+  <div class="head"><span class="ic"><svg><use href="#i-cv"/></svg></span><h1>السيرة الذاتية</h1></div>
+  <p class="lead">جهّز سيرتك الذاتية قبل أن تحتاجها؛ فكثير من فرص العمل يُطلب التقديم عليها في اليوم نفسه. نفّذتُ أكثر من 250 سيرة ذاتية بالعربية والإنجليزية.</p>
+
+  <div class="card">
+    <h3>ما تحصل عليه</h3>
+    <ul class="ticks">
+      <li>سيرة ذاتية بتصميم Europass الأوروبي، متوافقة مع أنظمة فرز السير الذاتية الآلية (ATS) التي تعتمدها الشركات والمنظمات.</li>
+      <li>صياغة احترافية لخبراتك ومهامك، حتى لو أرسلت المسميات الوظيفية فقط.</li>
+      <li>تجهيز صورتك الشخصية بخلفية رسمية وقصّ مناسب عند الحاجة.</li>
+      <li>تسليم الملف بصيغة PDF جاهزاً للتقديم، وبصيغة Word عند الطلب.</li>
+      <li>لا تُضاف أي معلومة أو شهادة غير موجودة لديك.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>الأسعار</h3>
+    <div class="prices">
+      <div class="price best"><span class="badge">الأكثر طلباً</span><b>النسختان العربية والإنجليزية</b><span class="amt">1250</span> <span class="cur">ليرة سورية جديدة</span></div>
+      <div class="price"><b>النسخة الإنجليزية</b><span class="amt">850</span> <span class="cur">ليرة سورية جديدة</span></div>
+    </div>
+    <p class="note">النسختان معاً تجعلانك جاهزاً لأي جهة، أياً كانت اللغة التي تطلبها.</p>
+  </div>
+
+  <div class="card">
+    <h3>طريقة الطلب</h3>
+    <ol class="steps">
+      <li>املأ معلوماتك خطوة بخطوة في صفحة الطلب.</li>
+      <li>أرسلها إليّ عبر واتساب بضغطة زر، مع صورتك الشخصية.</li>
+      <li>تستلم سيرتك الذاتية جاهزة للتقديم.</li>
+    </ol>
+  </div>
+
+  <div class="cta">
+    <a class="btn primary" href="https://sam96sd.github.io/cv-request/">ابدأ تعبئة معلوماتك</a>
+    <a class="btn ghost wa-link" data-msg="مرحباً، لديّ سؤال عن خدمة السيرة الذاتية." href="#">اسأل عبر واتساب</a>
+  </div>
+</section>
+
+<!-- =================== WEB PAGES =================== -->
+<section class="page wrap" id="p-web">
+  <a class="back" href="#">→ كل الخدمات</a>
+  <div class="head"><span class="ic"><svg><use href="#i-web"/></svg></span><h1>صفحات ويب للمحلات والمطاعم</h1></div>
+  <p class="lead">صفحة بسيطة وسريعة تفتح من أي جوال برابط أو برمز QR، تعرض لزبائنك ما يحتاجون معرفته فقط، دون تعقيد.</p>
+
+  <div class="cols">
+    <div class="card">
+      <h3>للمطاعم والمقاهي</h3>
+      <ul class="ticks">
+        <li>منيو إلكتروني مقسّم حسب الأصناف، مع الأسعار والصور.</li>
+        <li>رمز QR جاهز للطباعة ووضعه على الطاولات والواجهة.</li>
+        <li>زر للطلب أو الحجز عبر واتساب مباشرة.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>للمحلات والخدمات</h3>
+      <ul class="ticks">
+        <li>واجهة تعرض منتجاتك وعروضك الحالية بشكل مرتب وجذاب.</li>
+        <li>معلومات التواصل والموقع وأوقات العمل.</li>
+        <li>زر للطلب عبر واتساب، يصلك منه الزبون مباشرة.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>المزايا</h3>
+    <ul class="ticks">
+      <li>تعمل على الجوال والحاسوب، وتُفتح بسرعة حتى مع الإنترنت الضعيف.</li>
+      <li>رابط ثابت تشاركه على صفحاتك في وسائل التواصل وفي إعلاناتك.</li>
+      <li>تحديث الأسعار والعروض عند الحاجة.</li>
+    </ul>
+  </div>
+
+  <div class="card examples">
+    <h3>من أعمالي</h3>
+    <ul class="ticks">
+      <li><a href="https://sam96sd.github.io/cv-request/">صفحة طلب السيرة الذاتية</a>: نموذج يملؤه الزبون خطوة بخطوة ويرسله عبر واتساب.</li>
+      <li>هذه الصفحة التي تتصفحها الآن.</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a class="btn wa wa-link" data-msg="مرحباً، أرغب في صفحة ويب لمحلي/مطعمي." href="#"><svg><use href="#i-wa"/></svg>اطلب صفحتك عبر واتساب</a>
+  </div>
+</section>
+
+<!-- =================== ANDROID APPS =================== -->
+<section class="page wrap" id="p-apps">
+  <a class="back" href="#">→ كل الخدمات</a>
+  <div class="head"><span class="ic"><svg><use href="#i-app"/></svg></span><h1>تطبيقات أندرويد بسيطة</h1></div>
+  <p class="lead">تطبيق مخصّص لحاجتك، خفيف وسريع، يعمل دون اتصال بالإنترنت، ودون أي إعلانات.</p>
+
+  <div class="card">
+    <h3>ما يمكن تنفيذه</h3>
+    <ul class="ticks">
+      <li>تطبيقات تعمل بالكامل دون إنترنت، وتحفظ بياناتها على الجهاز.</li>
+      <li>أدوات لحاجة محددة: مشغّل وسائط، أو قائمة، أو حاسبة، أو دليل لمحتوى معيّن.</li>
+      <li>واجهة عربية بسيطة وواضحة.</li>
+      <li>تسليم ملف التطبيق (APK) جاهزاً للتثبيت.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>من أعمالي: مشغّل موسيقى PulseWave</h3>
+    <ul class="ticks">
+      <li>مشغّل خفيف للأغاني المحفوظة على الجهاز، بلا إعلانات.</li>
+      <li>يستبعد الرسائل الصوتية لواتساب من مكتبة الأغاني تلقائياً.</li>
+      <li>كلمات الأغاني متزامنة مع الصوت، وتُحفظ لتعمل دون إنترنت.</li>
+      <li>مؤقّت نوم يخفض الصوت تدريجياً، وقوائم تشغيل، وتعديل سريع لمعلومات الأغنية.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>ومنها أيضاً</h3>
+    <p style="margin:0">تطبيق Muffin لتشغيل IPTV على الشاشات. <a href="#iptv">اطّلع على تفاصيله</a>.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn wa wa-link" data-msg="مرحباً، أرغب في تطبيق أندرويد. فكرتي هي: " href="#"><svg><use href="#i-wa"/></svg>أخبرني بفكرتك عبر واتساب</a>
+  </div>
+</section>
+
+<!-- =================== IPTV =================== -->
+<section class="page wrap" id="p-iptv">
+  <a class="back" href="#">→ كل الخدمات</a>
+  <div class="head"><span class="ic"><svg><use href="#i-tv"/></svg></span><h1>تطبيق IPTV خفيف: Muffin</h1></div>
+  <p class="lead">مشغّل سريع وخفيف لشاشات أندرويد وأجهزة Android TV، بلا أي إعلانات، يعمل باشتراك IPTV الذي لديك.</p>
+
+  <div class="shots card">
+    <figure><img src="img/muffin-home.jpg" alt="الشاشة الرئيسية لتطبيق Muffin" loading="lazy" width="961" height="540"><figcaption>الشاشة الرئيسية: البث المباشر والأفلام والمسلسلات</figcaption></figure>
+    <figure><img src="img/muffin-search.jpg" alt="البحث بالعربية في تطبيق Muffin" loading="lazy" width="960" height="540"><figcaption>البحث بالعربية بلوحة مفاتيح عربية</figcaption></figure>
+  </div>
+
+  <div class="card">
+    <h3>المزايا</h3>
+    <ul class="ticks">
+      <li>لا يحتوي على أي إعلانات.</li>
+      <li>بحث بالعربية والإنجليزية في القنوات والأفلام والمسلسلات، وبحث داخل كل قسم.</li>
+      <li>متابعة المشاهدة من حيث توقفت، والانتقال إلى الحلقة التالية، وقائمة المفضلة.</li>
+      <li>اختيار الترجمة والصوت والجودة من داخل المشغّل.</li>
+      <li>تخزين مسبق للبث يقلّل التقطيع عند ضعف الإنترنت.</li>
+    </ul>
+    <p class="note"><strong>ملاحظة:</strong> الخدمة تشمل التطبيق فقط، ولا تشمل اشتراك IPTV؛ يعمل التطبيق بالاشتراك الذي لديك.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn wa wa-link" data-msg="مرحباً، أرغب في تطبيق Muffin لتشغيل IPTV." href="#"><svg><use href="#i-wa"/></svg>اطلب التطبيق عبر واتساب</a>
+  </div>
+</section>
+
+<!-- =================== TRANSLATION =================== -->
+<section class="page wrap" id="p-translation">
+  <a class="back" href="#">→ كل الخدمات</a>
+  <div class="head"><span class="ic"><svg><use href="#i-tr"/></svg></span><h1>الترجمة</h1></div>
+  <p class="lead">ترجمة دقيقة من الإنجليزية إلى العربية وبالعكس، تنقل المعنى بأسلوب عربي سليم وطبيعي. خريج أدب إنجليزي من جامعة دمشق، وحاصل على ماجستير في اللسانيات التطبيقية.</p>
+  <div class="card">
+    <h3>ما تحصل عليه</h3>
+    <ul class="ticks">
+      <li>ترجمة في المجالات العامة والطبية والرياضية والعلمية والاقتصادية والقانونية والتسويقية والأكاديمية.</li>
+      <li>مراجعة لغوية للنص المترجم قبل التسليم.</li>
+      <li>الحفاظ على تنسيق الملف الأصلي قدر الإمكان، والتسليم بصيغة Word أو PDF.</li>
+    </ul>
+  </div>
+  <div class="cta">
+    <a class="btn wa wa-link" data-msg="مرحباً، أرغب في ترجمة ملف." href="#"><svg><use href="#i-wa"/></svg>أرسل ملفك عبر واتساب</a>
+    <a class="btn ghost" href="https://khamsat.com/user/samer040saad">اطلبها عبر خمسات</a>
+  </div>
+</section>
+
+<!-- =================== VIDEO =================== -->
+<section class="page wrap" id="p-video">
+  <a class="back" href="#">→ كل الخدمات</a>
+  <div class="head"><span class="ic"><svg><use href="#i-sub"/></svg></span><h1>ترجمة الفيديو</h1></div>
+  <p class="lead">ترجمة المحاضرات والدورات التعليمية ومحتوى يوتيوب وتيك توك وإنستغرام من الإنجليزية إلى العربية.</p>
+  <div class="card">
+    <h3>ما تحصل عليه</h3>
+    <ul class="ticks">
+      <li>ترجمة إلى عربية سليمة وطبيعية في ملف Word.</li>
+      <li>ملف ترجمة SRT متزامن مع الصوت، جاهز للرفع على المنصات.</li>
+      <li>تسليم الفيديو نفسه والترجمة ظاهرة عليه، عند الطلب.</li>
+      <li>تقسيم الجمل على التوقيت بما يناسب سرعة القراءة.</li>
+    </ul>
+  </div>
+  <div class="cta">
+    <a class="btn wa wa-link" data-msg="مرحباً، أرغب في ترجمة فيديو." href="#"><svg><use href="#i-wa"/></svg>أرسل الفيديو عبر واتساب</a>
+    <a class="btn ghost" href="https://khamsat.com/user/samer040saad">اطلبها عبر خمسات</a>
+  </div>
+</section>
+
+<!-- =================== TRANSCRIPTION =================== -->
+<section class="page wrap" id="p-transcription">
+  <a class="back" href="#">→ كل الخدمات</a>
+  <div class="head"><span class="ic"><svg><use href="#i-mic"/></svg></span><h1>التفريغ الصوتي والمرئي</h1></div>
+  <p class="lead">تحويل الملفات الصوتية ومقاطع الفيديو (المحاضرات، والمقابلات، والدروس، والبودكاست) إلى نص مكتوب بدقة، بالعربية والإنجليزية.</p>
+  <div class="card">
+    <h3>ما تحصل عليه</h3>
+    <ul class="ticks">
+      <li>نص مراجَع بعد التفريغ لضمان دقته، مع تنسيق احترافي للملف.</li>
+      <li>التسليم بصيغة Word أو PDF، أو ملف SRT مع التوقيت عند الطلب.</li>
+      <li>استخراج النصوص من الصور وملفات PDF الممسوحة ضوئياً.</li>
+    </ul>
+    <p class="note">يُرجى أن يكون الصوت واضحاً.</p>
+  </div>
+  <div class="cta">
+    <a class="btn wa wa-link" data-msg="مرحباً، أرغب في تفريغ ملف صوتي/فيديو." href="#"><svg><use href="#i-wa"/></svg>أرسل ملفك عبر واتساب</a>
+    <a class="btn ghost" href="https://khamsat.com/user/samer040saad">اطلبها عبر خمسات</a>
+  </div>
+</section>
+
+<!-- =================== PROOFREADING =================== -->
+<section class="page wrap" id="p-proofreading">
+  <a class="back" href="#">→ كل الخدمات</a>
+  <div class="head"><span class="ic"><svg><use href="#i-pen"/></svg></span><h1>التدقيق اللغوي</h1></div>
+  <p class="lead">تدقيق لغوي شامل لنصوصك العربية والإنجليزية، لتصل إلى قرّائك سليمة وواضحة واحترافية.</p>
+  <div class="card">
+    <h3>ما تحصل عليه</h3>
+    <ul class="ticks">
+      <li>تصحيح الأخطاء الإملائية والنحوية وعلامات الترقيم.</li>
+      <li>تحسين صياغة الجمل الركيكة مع الحفاظ على المعنى وأسلوب الكاتب.</li>
+      <li>إظهار التعديلات في الملف عند الطلب لتراجعها بسهولة.</li>
+      <li>يصلح للمقالات، والأبحاث والرسائل الجامعية، والعروض التقديمية، ومحتوى المواقع.</li>
+    </ul>
+  </div>
+  <div class="cta">
+    <a class="btn wa wa-link" data-msg="مرحباً، أرغب في تدقيق نص." href="#"><svg><use href="#i-wa"/></svg>أرسل نصك عبر واتساب</a>
+    <a class="btn ghost" href="https://khamsat.com/user/samer040saad">اطلبها عبر خمسات</a>
+  </div>
+</section>
+
+<footer class="wrap">
+  للتواصل عبر واتساب: <a class="wa-link ltr" data-msg="مرحباً،" href="#">0947941447</a>
+  · <a href="https://khamsat.com/user/samer040saad">تقييمات عملائي على خمسات</a>
+</footer>
+
+<script>
+const WHATSAPP_NUMBER = "963947941447";
+document.querySelectorAll(".wa-link").forEach(a => {
+  a.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(a.dataset.msg || "مرحباً،");
+  a.target = "_blank"; a.rel = "noopener";
+});
+const PAGES = ["cv","web","apps","iptv","translation","video","transcription","proofreading"];
+const TITLES = {cv:"السيرة الذاتية",web:"صفحات ويب للمحلات والمطاعم",apps:"تطبيقات أندرويد",iptv:"تطبيق IPTV",translation:"الترجمة",video:"ترجمة الفيديو",transcription:"التفريغ الصوتي والمرئي",proofreading:"التدقيق اللغوي"};
+function route(){
+  const id = location.hash.replace("#","");
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  if (PAGES.includes(id)) {
+    document.getElementById("p-" + id).classList.add("active");
+    document.body.classList.add("on-service");
+    document.title = TITLES[id] + " | سامر سعد";
+  } else {
+    document.body.classList.remove("on-service");
+    document.title = "سامر سعد | الخدمات";
+  }
+  window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
