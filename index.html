@@ -88,6 +88,13 @@ ul.ticks li::before{content:"";position:absolute;inset-inline-start:0;top:.55em;
 .shots img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);display:block}
 .shots figcaption{font-size:13.5px;color:var(--muted);margin-top:6px;text-align:center}
 .examples a{font-weight:700}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.work{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:14px;text-decoration:none;color:inherit;transition:border-color .15s}
+.work:hover{border-color:var(--blue)}
+.work img,.work-ic{width:56px;height:56px;border-radius:12px;flex:none;object-fit:cover}
+.work-ic.sq{display:grid;place-items:center;background:#0B0B12;color:#FF2E88;font-size:15px;letter-spacing:1px;direction:ltr}
+.work b{display:block;font-size:16px}
+.work small{color:var(--muted);font-size:13.5px}
 .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
 .btn svg{width:20px;height:20px}
@@ -214,8 +221,16 @@ footer a{text-decoration:none;font-weight:700}
     </ul>
   </div>
 
+  <div class="card">
+    <h3>معرض الأعمال</h3>
+    <div class="works">
+      <a class="work" href="work/brnji/"><img src="work/brnji/logo.jpg" alt="" width="64" height="64" loading="lazy"><span><b>مطعم برنجي</b><small>منيو إلكتروني · دير عطية</small></span></a>
+      <a class="work" href="work/squid-gamers/"><span class="work-ic sq" aria-hidden="true">○△□</span><span><b>Squid Gamers</b><small>صفحة الأسعار والخدمات · صالة ألعاب</small></span></a>
+    </div>
+  </div>
+
   <div class="card examples">
-    <h3>من أعمالي</h3>
+    <h3>ومن أعمالي أيضاً</h3>
     <ul class="ticks">
       <li><a href="https://sam96sd.github.io/cv-request/">صفحة طلب السيرة الذاتية</a>: نموذج يملؤه الزبون خطوة بخطوة ويرسله عبر واتساب.</li>
       <li>هذه الصفحة التي تتصفحها الآن.</li>
@@ -251,6 +266,9 @@ footer a{text-decoration:none;font-weight:700}
       <li>كلمات الأغاني متزامنة مع الصوت، وتُحفظ لتعمل دون إنترنت.</li>
       <li>مؤقّت نوم يخفض الصوت تدريجياً، وقوائم تشغيل، وتعديل سريع لمعلومات الأغنية.</li>
     </ul>
+    <div class="prices" style="margin-top:12px">
+      <div class="price best"><b>مشغّل الموسيقى Muffin مدى الحياة</b><span class="amt">3</span> <span class="cur">دولارات، تُدفع مرة واحدة، شاملة الإصلاحات</span></div>
+    </div>
     <p class="note">بعد التثبيت يظهر لك «رمز الجهاز»؛ أرسله عبر واتساب من داخل التطبيق لتصلك رسالة فيها رمز التفعيل. كل رمز يعمل على جوال واحد فقط.</p>
     <div class="cta" style="margin-top:14px">
       <a class="btn primary" href="apps/muffin-music.apk" download="Muffin-Music.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 20h14"/></svg>تحميل مشغّل الموسيقى</a>
