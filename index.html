@@ -56,6 +56,13 @@ a{color:var(--blue)}
 .tile p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
 .tile .more{color:var(--blue);font-weight:700;font-size:14px}
 .sec-label{margin:18px 0 0;font-size:14px;font-weight:700;color:var(--muted)}
+.to-works{margin-top:16px;font-family:inherit;font-size:15px;font-weight:700;color:var(--blue);background:var(--blue-soft);border:1px solid var(--line);border-radius:999px;padding:8px 20px;cursor:pointer}
+.to-works:hover{border-color:var(--blue)}
+.home-works{padding:4px 0 44px}
+.home-title{margin:0;font-size:clamp(24px,5vw,30px);font-weight:800;text-align:center}
+.home-sub{margin:4px 0 18px;text-align:center;color:var(--muted)}
+.home-works .work{background:var(--card);box-shadow:var(--shadow)}
+.work-ic.ic svg{width:28px;height:28px}
 /* ---------- service pages ---------- */
 .page{display:none;padding:22px 0 48px}
 body.on-service .home{display:none}
@@ -132,6 +139,7 @@ footer a{text-decoration:none;font-weight:700}
   <header class="hero">
     <h1>سامر سعد</h1>
     <p>اختر الخدمة التي تحتاجها لتطّلع على تفاصيلها.</p>
+    <button class="to-works" type="button" id="toWorks">شاهد معرض أعمالي ↓</button>
   </header>
 
   <div class="grid">
@@ -144,6 +152,18 @@ footer a{text-decoration:none;font-weight:700}
     <a class="tile" href="#transcription"><span class="ic"><svg><use href="#i-mic"/></svg></span><h2>التفريغ الصوتي والمرئي</h2><p>تحويل التسجيلات والمحاضرات ومقاطع الفيديو إلى نص مكتوب بدقة، بالعربية والإنجليزية.</p><span class="more">التفاصيل</span></a>
     <a class="tile" href="#proofreading"><span class="ic"><svg><use href="#i-pen"/></svg></span><h2>التدقيق اللغوي</h2><p>تدقيق إملائي ونحوي وتحسين للصياغة في النصوص العربية والإنجليزية.</p><span class="more">التفاصيل</span></a>
   </div>
+
+  <section class="home-works" id="works">
+    <h2 class="home-title">معرض الأعمال</h2>
+    <p class="home-sub">نماذج حقيقية من أعمالي؛ اضغط على أي منها لتفتحه.</p>
+    <div class="works">
+      <a class="work" href="work/brnji/"><img src="work/brnji/brnji-logo-full.png" alt="" width="64" height="64" loading="lazy"><span><b>مطعم برنجي</b><small>منيو إلكتروني مع رمز QR · دير عطية</small></span></a>
+      <a class="work" href="work/squid-gamers/"><span class="work-ic sq" aria-hidden="true">○△□</span><span><b>Squid Gamers</b><small>صفحة الأسعار والخدمات · صالة ألعاب</small></span></a>
+      <a class="work" href="https://sam96sd.github.io/cv-request/"><span class="work-ic ic"><svg><use href="#i-cv"/></svg></span><span><b>صفحة طلب السيرة الذاتية</b><small>نموذج يُملأ خطوة بخطوة ويُرسل عبر واتساب</small></span></a>
+      <a class="work" href="#iptv"><img src="img/muffin-home.jpg" alt="" width="64" height="64" loading="lazy"><span><b>Muffin TV</b><small>تطبيق IPTV خفيف لشاشات أندرويد</small></span></a>
+      <a class="work" href="#apps"><span class="work-ic ic"><svg><use href="#i-app"/></svg></span><span><b>Muffin للموسيقى</b><small>مشغّل أغانٍ للجوال يعمل دون إنترنت</small></span></a>
+    </div>
+  </section>
 </main>
 
 <!-- =================== CV =================== -->
@@ -432,6 +452,13 @@ function route(){
   }
   window.scrollTo(0, 0);
 }
+document.getElementById("toWorks").addEventListener("click", () => {
+  const top = document.getElementById("works").getBoundingClientRect().top + scrollY - 12;
+  const start = scrollY;
+  window.scrollTo({ top, behavior: "smooth" });
+  // Some browsers skip smooth scrolling (power saving, background tabs): jump instead.
+  setTimeout(() => { if (Math.abs(scrollY - start) < 2) window.scrollTo(0, top); }, 400);
+});
 document.getElementById("themeBtn").addEventListener("click", () => {
   const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", next);
