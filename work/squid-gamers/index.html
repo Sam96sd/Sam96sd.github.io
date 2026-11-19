@@ -32,6 +32,13 @@ h2::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--
 .price .n{font-size:24px;font-weight:800;color:var(--teal)}
 .price .u{display:block;font-size:12.5px;color:var(--muted);margin-top:-4px}
 .note{color:var(--muted);font-size:13.5px;margin:10px 2px 0}
+.vip{display:flex;align-items:center;gap:14px;margin:8px 0 0;padding:18px 16px;border-radius:18px;border:1.5px solid var(--pink);
+  background:linear-gradient(135deg,rgba(255,46,136,.18),rgba(23,195,178,.10));box-shadow:0 0 28px rgba(255,46,136,.22)}
+.vip-badge{flex:none;font-weight:800;font-size:15px;letter-spacing:1px;color:#0B0B12;background:var(--pink);border-radius:10px;padding:6px 10px}
+.vip-body{flex:1;min-width:0}
+.vip-body b{font-size:18px}
+.vip-body p{margin:2px 0 0;color:var(--muted);font-size:14.5px}
+.vip .price .n{color:var(--pink);font-size:28px;direction:ltr;display:inline-block}
 .visit{margin:28px 0 10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
 .visit p{margin:4px 0}
 .btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;text-decoration:none;font-weight:700;padding:11px 20px;border-radius:12px;background:var(--pink);color:#fff}
@@ -55,6 +62,15 @@ h2::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--
 </header>
 
 <main class="wrap">
+  <div class="vip">
+    <span class="vip-badge">VIP</span>
+    <div class="vip-body">
+      <b>اشتراك VIP الشهري</b>
+      <p>لعب أونلاين مفتوح كل يوم، قدّ ما بدك تجي</p>
+    </div>
+    <span class="price"><span class="n">100$</span><span class="u">بالشهر</span></span>
+  </div>
+
   <h2>البلايستيشن</h2>
   <div class="grid">
     <div class="row"><b>بلايستيشن 5<small>بأحدث الألعاب</small></b><span class="price"><span class="n">150</span><span class="u">ليرة / الساعة</span></span></div>
@@ -78,7 +94,7 @@ h2::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--
   <div class="grid">
     <div class="row"><b>تحميل ألعاب<small>بسرعة الإنترنت الخارق</small></b><span class="price"><span class="n">250</span><span class="u">ليرة / كل 30 جيجا</span></span></div>
   </div>
-  <p class="note">الأسعار بالليرة السورية الجديدة.</p>
+  <p class="note">الأسعار بالليرة السورية الجديدة، عدا اشتراك VIP فهو بالدولار.</p>
 
   <div class="visit">
     <p><b>العنوان</b></p>
