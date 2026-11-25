@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>هلا سعد | رسم يدوي وثياب أوروبية</title>
-<meta name="description" content="هلا سعد: Glowing Art للرسم اليدوي، وFara Little Store لبيع الثياب الأوروبية. صفحات إنستغرام وفيسبوك والتواصل عبر واتساب.">
+<title>هلا سعد | رسم يدوي وملابس أوروبية</title>
+<meta name="description" content="هلا سعد: Glowing Art للرسم اليدوي، وFara Little Store لبيع الملابس الأوروبية. صفحات إنستغرام وفيسبوك والتواصل عبر واتساب.">
 <meta name="theme-color" content="#1B1512">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,19 +28,24 @@ h1{margin:0;font-family:"Lalezar",sans-serif;font-weight:400;font-size:clamp(46p
 .intro{text-align:center;padding:24px 0 0}
 .kicker{display:inline-block;font-weight:800;font-size:15px;background:var(--papyrus);border:2.5px solid var(--ink);border-radius:999px;padding:3px 18px}
 .sub{margin:10px 0 0;color:var(--muted);font-size:17px;font-weight:600}
-h2{font-family:"Lalezar",sans-serif;font-weight:400;font-size:32px;margin:30px 0 16px;display:flex;align-items:center;justify-content:center;gap:12px}
-h2 svg{width:18px;height:30px}
-.works{display:grid;gap:18px}
-.work{background:var(--papyrus);border:2.5px solid var(--ink);border-radius:20px;padding:18px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column}
-.head{display:flex;align-items:center;gap:12px}
-.ic{width:54px;height:54px;border-radius:14px;border:2.5px solid var(--ink);display:grid;place-items:center;flex:none;color:var(--papyrus)}
-.art .ic{background:var(--orange)}
-.shop .ic{background:var(--blue)}
+/* Two separate businesses: each gets its own coloured panel */
+.biz{margin-top:28px;border:2.5px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:6px 6px 0 var(--ink);background:var(--papyrus)}
+.biz-head{display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:2.5px solid var(--ink);color:#fff}
+.art .biz-head{background:var(--orange)}
+.shop .biz-head{background:var(--blue)}
+.biz-head h2{margin:0;font-family:"Lalezar",sans-serif;font-weight:400;font-size:30px;line-height:1.2}
+.biz-head .en{display:block;direction:ltr;text-align:right;font-weight:800;font-size:12.5px;letter-spacing:3px;opacity:.9}
+.ic{width:54px;height:54px;border-radius:14px;border:2.5px solid var(--ink);display:grid;place-items:center;flex:none;background:var(--papyrus)}
+.art .ic{color:var(--orange)}
+.shop .ic{color:var(--blue)}
 .ic svg{width:28px;height:28px}
-.work small{display:block;color:var(--muted);font-size:14px;font-weight:700}
-.work h3{margin:0;font-size:22px;line-height:1.35;direction:ltr;text-align:right;unicode-bidi:plaintext}
-.work p{margin:12px 0 0;color:var(--muted)}
-.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:14px}
+.biz-body{padding:18px}
+.biz-body h3{margin:0;font-size:24px;line-height:1.35;direction:ltr;text-align:right;unicode-bidi:plaintext}
+.biz-body p{margin:8px 0 0;color:var(--muted)}
+.sep{display:flex;align-items:center;gap:12px;margin:28px 8px 0}
+.sep span{flex:1;height:3px;border-radius:3px;background:var(--ink);opacity:.25}
+.sep svg{width:18px;height:30px;flex:none}
+.btns{display:flex;flex-wrap:wrap;gap:8px;padding-top:14px}
 .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:9px 15px;border-radius:12px;border:2px solid var(--ink);color:var(--ink);background:#fff}
 .btn svg{width:18px;height:18px;flex:none}
 .btn.wa{background:var(--wa);color:#fff}
@@ -50,7 +55,6 @@ h2 svg{width:18px;height:30px}
 .contact .big{font-size:26px;font-weight:800;color:var(--ink);margin:2px 0 14px}
 .credit{text-align:center;font-size:13px;color:var(--muted);padding:22px 16px 28px}
 .credit a{color:var(--blue);font-weight:700;text-decoration:none}
-@media (min-width:680px){.works{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -78,29 +82,35 @@ h2 svg{width:18px;height:30px}
 
 <main class="wrap">
   <div class="intro">
-    <span class="kicker">رسم يدوي · ثياب أوروبية</span>
+    <span class="kicker">رسم يدوي · ملابس أوروبية</span>
     <p class="sub">فنٌّ مرسوم باليد، وأناقة من أوروبا</p>
   </div>
 
-  <h2><svg aria-hidden="true" style="color:#C9962E"><use href="#i-ankh"/></svg>أعمالي<svg aria-hidden="true" style="color:#C9962E"><use href="#i-ankh"/></svg></h2>
-  <div class="works">
-    <article class="work art">
-      <div class="head"><span class="ic"><svg><use href="#i-brush"/></svg></span><span><small>رسم يدوي</small><h3>Glowing Art</h3></span></div>
+  <section class="biz art">
+    <div class="biz-head"><span class="ic"><svg><use href="#i-brush"/></svg></span><span><span class="en">HAND PAINTING</span><h2>الرسم اليدوي</h2></span></div>
+    <div class="biz-body">
+      <h3>Glowing Art</h3>
       <p>قطع فنية مرسومة يدوياً. تابع أحدث الأعمال على الصفحات، واطلب قطعتك عبر واتساب.</p>
       <div class="btns">
         <a class="btn" href="https://www.instagram.com/glowing.art.h/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>إنستغرام</a>
         <a class="btn" href="https://www.facebook.com/share/1EjhM7FGuy/" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg>فيسبوك</a>
       </div>
-    </article>
-    <article class="work shop">
-      <div class="head"><span class="ic"><svg><use href="#i-shirt"/></svg></span><span><small>محل ثياب أوروبية</small><h3>Fara Little Store</h3></span></div>
-      <p>ثياب أوروبية مختارة. تصفّح التشكيلة على الصفحات، واسأل عن القطع والمقاسات عبر واتساب.</p>
+    </div>
+  </section>
+
+  <div class="sep" aria-hidden="true"><span></span><svg style="color:#C9962E"><use href="#i-ankh"/></svg><span></span></div>
+
+  <section class="biz shop">
+    <div class="biz-head"><span class="ic"><svg><use href="#i-shirt"/></svg></span><span><span class="en">EUROPEAN FASHION</span><h2>الملابس الأوروبية</h2></span></div>
+    <div class="biz-body">
+      <h3>Fara Little Store</h3>
+      <p>ملابس أوروبية مختارة. تصفّح التشكيلة على الصفحات، واسأل عن القطع والمقاسات عبر واتساب.</p>
       <div class="btns">
         <a class="btn" href="https://www.instagram.com/fara_little_store/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>إنستغرام</a>
         <a class="btn" href="https://www.facebook.com/share/1BPJkLfxzp/" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg>فيسبوك</a>
       </div>
-    </article>
-  </div>
+    </div>
+  </section>
 
   <div class="contact">
     <p>للتواصل والطلب عبر واتساب</p>
