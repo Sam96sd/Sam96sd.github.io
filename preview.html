@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar" dir="rtl" class="deco-glow deco-colors">
+<html lang="ar" dir="rtl" class="deco-grid deco-colors side-grid">
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex">
@@ -127,7 +127,7 @@ footer a{text-decoration:none;font-weight:700}
 .deco-glow .hero::before{background:radial-gradient(circle,var(--dot) 1.3px,transparent 1.8px) center/22px 22px}
 .deco-glow .hero::after{content:"";position:absolute;left:50%;top:18px;width:min(620px,100%);height:250px;transform:translateX(-50%);z-index:-1;pointer-events:none;
   background:radial-gradient(closest-side at 42% 50%,var(--glow1),transparent),radial-gradient(closest-side at 64% 58%,var(--glow2),transparent);filter:blur(26px)}
-.deco-grid .hero::before{background:linear-gradient(var(--gridline) 1px,transparent 1px) center/28px 28px,linear-gradient(90deg,var(--gridline) 1px,transparent 1px) center/28px 28px;
+.deco-grid .hero::before{background:linear-gradient(var(--gridline) 1px,transparent 1px) 0 0/28px 28px fixed,linear-gradient(90deg,var(--gridline) 1px,transparent 1px) 0 0/28px 28px fixed;
   -webkit-mask:radial-gradient(60% 80% at 50% 40%,#000 15%,transparent 85%);mask:radial-gradient(60% 80% at 50% 40%,#000 15%,transparent 85%)}
 :root.deco-colors .tile[href="#cv"],:root.deco-colors #p-cv{--c:#6CB4F5}
 :root[data-theme="light"].deco-colors .tile[href="#cv"],:root[data-theme="light"].deco-colors #p-cv{--c:#0C56A5}
@@ -153,8 +153,22 @@ footer a{text-decoration:none;font-weight:700}
 .pv button{font-family:inherit;font-size:13.5px;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
 .pv button[aria-pressed="true"]{background:var(--btn);border-color:var(--btn);color:#fff}
 .pv .sep{width:1px;height:22px;background:var(--line);margin:0 4px}
-body{padding-bottom:110px}
-@media (max-width:520px){.pv .sep{display:none}}
+body{padding-bottom:150px}
+@media (max-width:520px){.pv .sep{display:none}.pv{padding:8px 10px}.pv b{display:none}.pv button{font-size:12.5px;padding:4px 10px}.pv .lbl{min-width:0}}
+
+/* side decoration */
+:root{--side1:rgba(56,140,245,.17);--side2:rgba(45,212,191,.13)}
+:root[data-theme="light"]{--side1:rgba(108,180,245,.24);--side2:rgba(45,212,191,.18)}
+.side-grid body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(var(--gridline) 1px,transparent 1px) 0 0/28px 28px,linear-gradient(90deg,var(--gridline) 1px,transparent 1px) 0 0/28px 28px;
+  -webkit-mask:linear-gradient(90deg,#000,transparent 28%,transparent 72%,#000);mask:linear-gradient(90deg,#000,transparent 28%,transparent 72%,#000)}
+.side-glow body::after,.side-move body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(42vmax 42vmax at 0% 22%,var(--side1),transparent 70%),radial-gradient(42vmax 42vmax at 100% 78%,var(--side2),transparent 70%)}
+.side-move body::after{inset:-12%;animation:drift 24s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translate(0,0)}50%{transform:translate(4%,-5%)}100%{transform:translate(-4%,5%)}}
+@media (prefers-reduced-motion:reduce){.side-move body::after{animation:none}}
+.pv .row+.row{margin-top:6px}
+.pv .lbl{font-size:12.5px;color:var(--muted);font-weight:700;min-width:48px}
 </style>
 </head>
 <body>
@@ -523,28 +537,35 @@ route();
 
 <div class="pv" role="group" aria-label="تجربة الثيمات">
   <b>صفحة تجربة: اختر الخلفية والألوان</b>
-  <div class="row">
-    <button type="button" data-bg="none">بدون خلفية</button>
-    <button type="button" data-bg="glow">توهّج ونقاط</button>
-    <button type="button" data-bg="grid">شبكة هندسية</button>
-    <span class="sep"></span>
-    <button type="button" data-colors>ألوان الأيقونات</button>
+  <div class="row"><span class="lbl">فوق:</span>
+    <button type="button" data-g="bg" data-v="">بدون</button>
+    <button type="button" data-g="bg" data-v="deco-glow">توهّج ونقاط</button>
+    <button type="button" data-g="bg" data-v="deco-grid">شبكة هندسية</button>
+    <button type="button" data-t="deco-colors">ألوان الأيقونات</button>
+  </div>
+  <div class="row"><span class="lbl">الجوانب:</span>
+    <button type="button" data-g="side" data-v="">بدون</button>
+    <button type="button" data-g="side" data-v="side-grid">شبكة</button>
+    <button type="button" data-g="side" data-v="side-glow">توهّج</button>
+    <button type="button" data-g="side" data-v="side-move">توهّج متحرك</button>
   </div>
 </div>
 <script>
 (function(){
   var h=document.documentElement, bar=document.querySelector(".pv");
+  var groups={bg:["deco-glow","deco-grid"],side:["side-grid","side-glow","side-move"]};
   function sync(){
-    bar.querySelectorAll("[data-bg]").forEach(function(b){
-      var v=b.getAttribute("data-bg");
-      b.setAttribute("aria-pressed", v==="none" ? String(!h.classList.contains("deco-glow")&&!h.classList.contains("deco-grid")) : String(h.classList.contains("deco-"+v)));
+    bar.querySelectorAll("[data-g]").forEach(function(b){
+      var g=groups[b.dataset.g], v=b.dataset.v;
+      var on = v ? h.classList.contains(v) : !g.some(function(c){return h.classList.contains(c);});
+      b.setAttribute("aria-pressed", String(on));
     });
-    bar.querySelector("[data-colors]").setAttribute("aria-pressed", String(h.classList.contains("deco-colors")));
+    bar.querySelectorAll("[data-t]").forEach(function(b){ b.setAttribute("aria-pressed", String(h.classList.contains(b.dataset.t))); });
   }
   bar.addEventListener("click",function(e){
     var b=e.target.closest("button"); if(!b) return;
-    if(b.hasAttribute("data-bg")){ h.classList.remove("deco-glow","deco-grid"); var v=b.getAttribute("data-bg"); if(v!=="none") h.classList.add("deco-"+v); }
-    else h.classList.toggle("deco-colors");
+    if(b.dataset.g){ groups[b.dataset.g].forEach(function(c){h.classList.remove(c);}); if(b.dataset.v) h.classList.add(b.dataset.v); }
+    else h.classList.toggle(b.dataset.t);
     sync();
   });
   sync();
