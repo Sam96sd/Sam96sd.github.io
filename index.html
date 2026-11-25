@@ -115,6 +115,34 @@ footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);f
 footer a{text-decoration:none;font-weight:700}
 .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
 @media (max-width:520px){.hero{padding:40px 0 18px}.tile{padding:18px}.card{padding:18px}.btn{width:100%}}
+
+/* ---------- decoration (chosen 2026-11-26): faint grid behind the name and on the page sides, one colour per service ---------- */
+:root{--gridline:rgba(148,180,220,.10)}
+:root[data-theme="light"]{--gridline:rgba(12,86,165,.08)}
+.hero{position:relative;isolation:isolate;overflow:hidden;margin:0 -16px;padding-inline:16px}
+.hero::before,body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(var(--gridline) 1px,transparent 1px) 0 0/28px 28px,linear-gradient(90deg,var(--gridline) 1px,transparent 1px) 0 0/28px 28px}
+.hero::before{position:absolute;background-attachment:fixed;
+  -webkit-mask:radial-gradient(60% 80% at 50% 40%,#000 15%,transparent 85%);mask:radial-gradient(60% 80% at 50% 40%,#000 15%,transparent 85%)}
+body::before{-webkit-mask:linear-gradient(90deg,#000,transparent 28%,transparent 72%,#000);mask:linear-gradient(90deg,#000,transparent 28%,transparent 72%,#000)}
+.tile[href="#cv"],#p-cv{--c:#6CB4F5}
+:root[data-theme="light"] .tile[href="#cv"],:root[data-theme="light"] #p-cv{--c:#0C56A5}
+.tile[href="#web"],#p-web{--c:#4FD1A1}
+:root[data-theme="light"] .tile[href="#web"],:root[data-theme="light"] #p-web{--c:#0F8A5F}
+.tile[href="#apps"],#p-apps{--c:#B49CFF}
+:root[data-theme="light"] .tile[href="#apps"],:root[data-theme="light"] #p-apps{--c:#6D4BD8}
+.tile[href="#iptv"],#p-iptv{--c:#FF8FA8}
+:root[data-theme="light"] .tile[href="#iptv"],:root[data-theme="light"] #p-iptv{--c:#C7365A}
+.tile[href="#translation"],#p-translation{--c:#F5C26B}
+:root[data-theme="light"] .tile[href="#translation"],:root[data-theme="light"] #p-translation{--c:#A8600C}
+.tile[href="#video"],#p-video{--c:#5ED3E6}
+:root[data-theme="light"] .tile[href="#video"],:root[data-theme="light"] #p-video{--c:#0E7F93}
+.tile[href="#transcription"],#p-transcription{--c:#FF9F6B}
+:root[data-theme="light"] .tile[href="#transcription"],:root[data-theme="light"] #p-transcription{--c:#C2521A}
+.tile[href="#proofreading"],#p-proofreading{--c:#9DAEFF}
+:root[data-theme="light"] .tile[href="#proofreading"],:root[data-theme="light"] #p-proofreading{--c:#3949AB}
+.tile .ic,.page .head .ic{color:var(--c,var(--blue));background:color-mix(in srgb,var(--c,var(--blue)) 15%,transparent)}
+.tile:hover,.tile:focus-visible{border-color:var(--c,var(--blue))}
 </style>
 </head>
 <body>
