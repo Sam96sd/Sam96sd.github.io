@@ -36,6 +36,11 @@ h2 svg{width:26px;height:26px;color:var(--leaf)}
 .about{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px 18px}
 .about p{margin:0 0 6px}
 .about .owner{margin-top:10px;color:var(--muted);font-weight:700;font-size:15px}
+.about{display:grid;gap:6px;align-items:center}
+.owner-art{margin:-6px auto 4px;width:min(250px,72%);text-align:center}
+.owner-art img{display:block;width:100%;height:auto}
+.owner-art figcaption{margin-top:-4px;font-weight:800;color:var(--wood-dark);font-size:15.5px}
+@media (min-width:640px){.about{grid-template-columns:230px 1fr;column-gap:18px}.owner-art{grid-row:1/span 4;margin:0;width:100%}}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
 .chips li{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14.5px;color:var(--wood-dark);background:#F1E1C9;border:1px solid #E3CBA8;border-radius:999px;padding:4px 14px}
 .chips svg{width:16px;height:16px;color:var(--leaf)}
@@ -61,7 +66,7 @@ h2 svg{width:26px;height:26px;color:var(--leaf)}
 <header class="hero">
   <svg class="leaf l1" aria-hidden="true" style="color:#C9E09A"><use href="#i-leaf"/></svg>
   <svg class="leaf l2" aria-hidden="true" style="color:#C9E09A"><use href="#i-leaf"/></svg>
-  <img class="logo" src="khashab-logo.webp" alt="شعار خَشَاْب Khashab" width="776" height="641">
+  <img class="logo" src="khashab-logo.webp" alt="شعار خَشَاْب Khashab" width="900" height="739">
   <h1>خَشَاْب<span>KHASHAB</span></h1>
   <p class="tagline">أعمال خشبية مصنوعة يدوياً</p>
 </header>
@@ -73,6 +78,7 @@ h2 svg{width:26px;height:26px;color:var(--leaf)}
 
   <h2><svg><use href="#i-leaf"/></svg>عن المشروع</h2>
   <div class="about">
+    <figure class="owner-art"><img src="mohammad.webp" alt="رسمة لمحمد صاحب مشروع خَشَاْب وهو يعمل على قطعة خشب" width="640" height="833" loading="lazy"><figcaption>صاحب المشروع: محمد</figcaption></figure>
     <p>نصنع منتجاتٍ خشبية يدوية.</p>
     <p>مشروعنا بدايةُ رحلةٍ لإحياء الفن الخشبي، وربط الناس بجمال الطبيعة.</p>
     <ul class="chips">
@@ -80,7 +86,7 @@ h2 svg{width:26px;height:26px;color:var(--leaf)}
       <li><svg><use href="#i-leaf"/></svg>من الطبيعة</li>
       <li><svg><use href="#i-home"/></svg>قطع للبيت</li>
     </ul>
-    <p class="owner">صاحب المشروع: محمد</p>
+    
   </div>
 
   <div class="cta">
